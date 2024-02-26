@@ -1,0 +1,42 @@
+form{
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 200px;
+    width: 250px;
+    margin-left: 350px;
+}
+input{
+    margin: 10px;
+}
+.lesbuttons{
+    display: flex;
+    gap: 50px;
+    margin-top: 15px;
+    margin-left: 30px;
+
+}
+#age{
+    margin-left: 15px;
+}
+#nom{
+    margin-left: 12px;  
+}
+#pre{
+    margin-left: 20px;
+}
+label{
+    margin-left: 10px;
+}
+#afficher{
+ height: 50px;
+ width: 70px;
+ border-radius: 10px;
+ font-size: 18px;
+}
+#Ajouter{
+    height: 50px;
+    width: 70px;
+    border-radius: 15px;
+    font-size: 18px;
+
+}
