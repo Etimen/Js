@@ -1,0 +1,45 @@
+.container{
+    height: 400px;
+    width: 450px;
+    margin-top: 50px;
+    margin-left: 500px;
+    background-color: whitesmoke;
+    border: 2px solid gray;
+    border-radius: 25px;
+    box-shadow: -2px -2px 20px gray;
+}
+h1{
+    margin-left:39%;
+}
+#input1{
+    margin-left: 15px;
+}
+.error{
+    border:3px solid red;
+}
+#input2{
+    margin-left: 15px;
+}
+#input3{
+    margin-left: 15px;
+}
+#input4{
+    margin-left: 15px;
+}
+input{
+    width: 90%;
+    height: 32px;
+}
+label{
+    margin-left: 15px;
+    font-size: 18px;
+}
+#button{
+    height: 40px;
+    width: 90%;
+    margin-left: 15px;
+    margin-top: 20px;
+    background-color:rgb(64, 112, 199) ;
+    color: white;
+    font-size: medium   ;
+}
