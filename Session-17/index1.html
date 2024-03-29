@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax-json example</title>
+</head>
+<body>
+    <header>
+    <h1>ajax-json exemple</h1>
+    </header>
+    <div id="container">
+
+    </div>
+    <button id = "btn-load">load data</button>
+    <button id = "btn-data">send data</button>
+
+
+
+   <script>
+    let user
+    let content
+    const request = new XMLHttpRequest();
+    request.open("GET","user.json",true);
+    request.onreadystatechange =  function(){
+        if(this.readyState == 4 && this.status== 200){
+            data =JSON.parse(this.response)
+            user = data.user
+
+
+            content = "<ul>"
+            content += `<li> user name : ${user.nom} </li>`;
+            content += ` <li> user age : ${user.age} </li>`;
+            content += "</ul>"
+
+
+            document.getElementById('container').innerHTML = content 
+        }
+    }
+    request.send
+    function loadData(){
+        document
+        
+    }
+
+    
+   </script> 
+</body>
+</html>

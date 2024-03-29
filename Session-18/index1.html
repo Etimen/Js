@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax-json example</title>
+</head>
+<body>
+    
+    <header>
+    <h1> </h1>
+    </header>
+    <div id="container">
+
+
+
+   <script>
+    let searchText = /(DD)([0-9]{3})/gi;
+    const article = "Lorem ipsum  aymen  dolor sit amet  DD105 consectetur adipisicing elit. Voluptatem eos autem atque aymen maiores laboriosam eveniet reprehenderit! Enim, animi, ayme rem tempor DD104 ibus deserunt neque, a facilis ipsum  aymennnn  unde odit fugiat corporis eveniet?"
+
+
+    // search method  ==> -1 or index 
+
+
+    let postition =article.search(searchText);
+    console.log(postition)
+
+
+    // match method  ==>  null or array 
+
+
+    let groupsDD= article.match(searchText)
+    console.log(groupsDD)
+
+     // matchALL method
+
+    let groupsDDS= article.matchAll(searchText)
+    console.log(groupsDDS)
+
+    //replace method 
+    
+    let updatearticle = article.replace(searchText,"$1-1A-$2")
+     
+    console.log(updatearticle)
+ 
+    // split method (string ==== > array )
+
+    let modules = "PHP-HTML-CSS/POO "
+    let splitModuleS= modules.split(/[/-]/)
+    console.log(splitModuleS)
+
+    // test method 
+    let  tester = searchText.text.test(article);
+    console.log(tester)
+    // test method pattern
+    let chercherelem =  searchText.exec(article);
+    console.log(chercherelem);
+
+
+
+
+   </script> 
+</body>
+</html>
