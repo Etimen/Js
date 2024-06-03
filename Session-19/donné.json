@@ -1,0 +1,17 @@
+{  "stagiaires" :[
+    {  "id":"St-01",        "nom":"el idrysy",         "age":18,          "prenom":"eymen"       },
+    {  "id":"St-02",        "nom":"idrissi",           "age":18,          "prenom":"aymen"       },
+    {  "id":"St-03",        "nom":"el idrissy",        "age":18,          "prenom":"aymane"      }
+],
+
+
+
+    "activites":[
+        {"id":"A-01", "libelle":"musique"},
+        {"id":"A-02", "libelle":"theatre"},
+        {"id":"A-03", "libelle":"sports"}
+    ]
+
+}
+
+ 

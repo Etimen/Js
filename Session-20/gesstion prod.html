@@ -1,0 +1,107 @@
+<html>
+    <body onload="remplirTVS()">
+        <h1>Commander les TVs</h1>
+        <form action="" >
+            <label for="tv">TVs</label><br>
+            <select name="" id="tv"></select><br>
+            <label for="quantite">Quantité</label><br>
+            <input type="text" value="0" id="quantite">
+            <input type="button" onclick="ajouterAuPanier()" value="Ajouter Au panier">
+            <input type="button" value="calculer" onclick="CalculerPrixHT()" name="" id="">
+       
+            <h1>Panier des Commandes</h1>
+            <table border="1" id="panier">
+                <thead>
+                    <th>REFERENCE</th>
+                    <th>QUANTITE</th>
+                    <th>IMAGE</th>
+                    <th>ACTION</th>
+                </thead>
+                <tbody id="panierBody"></tbody>
+            </table>
+            <label for="totalHT">Total HT</label>
+            <input type="text" name="" id="totalHT" value="0 DHs" disabled><br>
+            <label for="TTC">Total TTC</label>
+            <input type="text" id="TTC" value="0 DHs" disabled><br>
+            <br><button onclick="">Commander</button>
+        </form>
+   
+        <script>
+            var listeTV = {
+                tvs:[
+                    {nom:'SAMSUNG QLED QE65Q80AA',prix:17999,taille:65,image:'C:\\Users\\user\\Documents\\my project\\html project\\correction efm js\\tele.jpeg'},
+                    {nom:'TCL QLED 55C825',prix:6100,taille:42,image:'images/img2.png'},
+                    {nom:'SONY OLED XR-75X90J',prix:25000,taille:52,image:'images/img3.png'},
+                    {nom:'LG OLED 77C1PVA',prix:9000,taille:65,image:'images/img4.png'}
+                ]
+            };
+ 
+            function remplirTVS(){
+                var select = document.getElementById("tv");
+                for (var i = 0; i < listeTV.tvs.length; i++) {
+                    var option = document.createElement("option");
+                    option.innerHTML = listeTV.tvs[i].nom;
+                    select.appendChild(option);
+                }
+            }
+ 
+            function ajouterAuPanier(){
+                var table = document.getElementById("panierBody");
+                var tr = document.createElement("tr");
+                var tdRef = document.createElement("td");
+                var tdQte = document.createElement("td");
+                var tdImg = document.createElement("td");
+                var tdAction = document.createElement("td");
+                tdRef.innerHTML = document.getElementById("tv").value;
+                tdQte.innerHTML = document.getElementById("quantite").value;
+                var image = "";
+                for (var i = 0; i < listeTV.tvs.length; i++){
+                    if(listeTV.tvs[i].nom == document.getElementById("tv").value){
+                        tdImg.innerHTML = '<img src="' + listeTV.tvs[i].image + '" >';
+                    }
+                }
+                var bouton = document.createElement("input");
+                bouton.setAttribute("type", "button");
+                bouton.setAttribute("onclick", "Supprimer(this)");
+                bouton.setAttribute("value", "Supprimer");
+               
+                tdAction.appendChild(bouton);
+                tr.appendChild(tdRef);
+                tr.appendChild(tdQte);
+                tr.appendChild(tdImg);
+                tr.appendChild(tdAction);
+                table.appendChild(tr);
+               
+                CalculerPrixHT();
+            }
+ 
+            function Supprimer(a){
+                a.parentNode.parentNode.remove();
+                CalculerPrixHT();
+            }
+ 
+            function CalculerPrixHT(){
+                var lignes = document.querySelectorAll("#panierBody tr");
+                var totalHT = 0;
+                for (var i = 0; i < lignes.length; i++){
+                    var nom = lignes[i].getElementsByTagName('td')[0].innerHTML;
+                    var qte = lignes[i].getElementsByTagName('td')[1].innerHTML;
+                    for (var j = 0; j < listeTV.tvs.length; j++){
+                        if(listeTV.tvs[j].nom == nom){
+                            var prix = listeTV.tvs[j].prix;
+                            totalHT += parseInt(qte) * prix;
+                        }
+                    }
+                }
+                document.getElementById("totalHT").value = totalHT + " DHs";
+                calculerprixTTC();
+            }
+ 
+            function calculerprixTTC(){
+                var prixht = document.getElementById("totalHT").value;
+                var prixttc = parseFloat(prixht) * 1.20;
+                document.getElementById("TTC").value = prixttc.toFixed(2) + " DHs";
+            }
+        </script>
+    </body>
+</html>
